@@ -1,0 +1,15 @@
+summary: Container-based validation (no VM required)
+description: |
+    Basic validation running the image as a container.
+    Use for CI environments without nested virtualization.
+
+provision:
+    how: container
+    image: ghcr.io/ublue-os/bluefin:stable
+
+discover:
+    how: fmf
+    filter: "tag:container"
+
+execute:
+    how: tmt

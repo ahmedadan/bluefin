@@ -1,0 +1,33 @@
+name: TMT Image Tests
+
+on:
+  workflow_run:
+    workflows: ["Stable Images"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      image:
+        description: 'Container image to test'
+        required: false
+        default: 'ghcr.io/ublue-os/bluefin:stable'
+
+jobs:
+  tmt-container-test:
+    name: Container Tests
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tmt
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip podman
+          pip3 install tmt[provision-container]
+
+      - name: Run container tests
+        run: |
+          cd tmt
+          tmt run --all plan --name container \
+            provision --how container \
+            --image ${{ inputs.image || 'ghcr.io/ublue-os/bluefin:stable' }}

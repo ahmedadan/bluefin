@@ -1,0 +1,7 @@
+summary: Verify key applications
+tag: apps
+test: ./test.sh
+duration: 5m
+require:
+    - flatpak
+    - gnome-terminal

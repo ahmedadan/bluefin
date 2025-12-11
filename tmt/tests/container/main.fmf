@@ -1,0 +1,4 @@
+summary: Basic container checks
+tag: container
+test: ./test.sh
+duration: 2m

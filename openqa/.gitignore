@@ -1,0 +1,10 @@
+# ISO files (too large for git)
+assets/*.iso
+
+# OpenQA data
+*.png
+!needles/**/*.png
+
+# Temporary files
+*.log
+*.tmp

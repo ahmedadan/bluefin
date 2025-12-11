@@ -1,0 +1,17 @@
+summary: Boot and desktop validation for Bluefin
+description: |
+    Validates Bluefin bootc image boots correctly and
+    GNOME desktop is functional.
+
+provision:
+    how: bootc
+    container-image: ghcr.io/ublue-os/bluefin:stable
+    disk: 40
+    memory: 4096
+
+discover:
+    how: fmf
+    filter: "tag:boot | tag:desktop"
+
+execute:
+    how: tmt

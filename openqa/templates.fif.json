@@ -1,0 +1,115 @@
+{
+  "Machines": [
+    {
+      "name": "64bit",
+      "backend": "qemu",
+      "settings": [
+        { "key": "HDDSIZEGB", "value": "40" },
+        { "key": "QEMUCPUS", "value": "2" },
+        { "key": "QEMURAM", "value": "4096" },
+        { "key": "QEMU_VIRTIO_RNG", "value": "1" },
+        { "key": "WORKER_CLASS", "value": "qemu_x86_64" },
+        { "key": "QEMU_VIDEO_DEVICE", "value": "virtio-vga" }
+      ]
+    },
+    {
+      "name": "uefi",
+      "backend": "qemu",
+      "settings": [
+        { "key": "HDDSIZEGB", "value": "40" },
+        { "key": "QEMUCPUS", "value": "4" },
+        { "key": "QEMURAM", "value": "8192" },
+        { "key": "QEMU_VIRTIO_RNG", "value": "1" },
+        { "key": "WORKER_CLASS", "value": "qemu_x86_64" },
+        { "key": "QEMU_VIDEO_DEVICE", "value": "virtio-vga" },
+        { "key": "QEMU_HOST_CPU", "value": "1" },
+        { "key": "UEFI", "value": "1" },
+        { "key": "UEFI_PFLASH_VARS", "value": "/usr/share/edk2/ovmf/OVMF_VARS.fd" },
+        { "key": "HDDMODEL", "value": "virtio-blk" },
+        { "key": "NICMODEL", "value": "virtio-net-pci" },
+        { "key": "QEMU_AUDIO_DRV", "value": "none" },
+        { "key": "TIMEOUT_SCALE", "value": "1.5" }
+      ]
+    }
+  ],
+  "Products": [
+    {
+      "name": "bluefin",
+      "distri": "bluefin",
+      "flavor": "default",
+      "version": "*",
+      "settings": [
+        { "key": "DESKTOP", "value": "gnome" },
+        { "key": "BLUEFIN_VARIANT", "value": "bluefin" },
+        { "key": "USER_LOGIN", "value": "bluefin" },
+        { "key": "USER_PASSWORD", "value": "bluefin" }
+      ]
+    },
+    {
+      "name": "bluefin-dx",
+      "distri": "bluefin",
+      "flavor": "dx",
+      "version": "*",
+      "settings": [
+        { "key": "DESKTOP", "value": "gnome" },
+        { "key": "BLUEFIN_VARIANT", "value": "bluefin-dx" },
+        { "key": "USER_LOGIN", "value": "bluefin" },
+        { "key": "USER_PASSWORD", "value": "bluefin" }
+      ]
+    }
+  ],
+  "TestSuites": [
+    {
+      "name": "boot_to_gdm",
+      "description": "Boot Bluefin to GDM login screen",
+      "settings": [
+        { "key": "TEST_SUITE", "value": "boot_to_gdm" },
+        { "key": "BOOT_TIMEOUT", "value": "300" }
+      ]
+    },
+    {
+      "name": "boot_to_desktop",
+      "description": "Boot Bluefin and log in to GNOME desktop",
+      "settings": [
+        { "key": "TEST_SUITE", "value": "boot_to_desktop" },
+        { "key": "BOOT_TIMEOUT", "value": "300" },
+        { "key": "DESKTOP_TIMEOUT", "value": "120" }
+      ]
+    },
+    {
+      "name": "boot_full",
+      "description": "Full boot test with desktop verification",
+      "settings": [
+        { "key": "TEST_SUITE", "value": "boot_full" },
+        { "key": "BOOT_TIMEOUT", "value": "300" },
+        { "key": "DESKTOP_TIMEOUT", "value": "120" }
+      ]
+    }
+  ],
+  "JobTemplates": [
+    {
+      "machine": { "name": "uefi" },
+      "prio": 50,
+      "product": { "name": "bluefin" },
+      "test_suite": { "name": "boot_to_gdm" }
+    },
+    {
+      "machine": { "name": "uefi" },
+      "prio": 50,
+      "product": { "name": "bluefin" },
+      "test_suite": { "name": "boot_to_desktop" }
+    },
+    {
+      "machine": { "name": "uefi" },
+      "prio": 40,
+      "product": { "name": "bluefin-dx" },
+      "test_suite": { "name": "boot_to_gdm" }
+    },
+    {
+      "machine": { "name": "uefi" },
+      "prio": 40,
+      "product": { "name": "bluefin-dx" },
+      "test_suite": { "name": "boot_to_desktop" }
+    }
+  ]
+}

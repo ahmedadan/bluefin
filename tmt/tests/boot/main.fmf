@@ -1,0 +1,6 @@
+summary: Verify system boots successfully
+tag: boot
+test: ./test.sh
+duration: 5m
+require:
+    - systemd

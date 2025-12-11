@@ -1,0 +1,7 @@
+summary: Verify system services
+tag: services
+test: ./test.sh
+duration: 5m
+require:
+    - podman
+    - systemd

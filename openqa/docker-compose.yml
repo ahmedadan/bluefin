@@ -1,0 +1,29 @@
+# OpenQA development environment for Bluefin testing
+# Uses the single-instance container which includes web UI + worker
+# See README.md for usage instructions
+
+services:
+  openqa:
+    image: registry.opensuse.org/devel/openqa/containers/openqa-single-instance
+    container_name: openqa
+    ports:
+      - "9526:80"      # Web UI (HTTP)
+      - "9527:443"     # Web UI (HTTPS)
+    volumes:
+      # Persistent data
+      - openqa-data:/var/lib/openqa
+      # Test distribution
+      - ./tests:/var/lib/openqa/tests/bluefin/tests:ro
+      - ./lib:/var/lib/openqa/tests/bluefin/lib:ro
+      - ./needles:/var/lib/openqa/tests/bluefin/needles
+      - ./main.pm:/var/lib/openqa/tests/bluefin/main.pm:ro
+      # ISO assets (needs write access for OpenQA to manage)
+      - ./assets:/var/lib/openqa/share/factory/iso:z
+    devices:
+      - /dev/kvm:/dev/kvm
+    security_opt:
+      - label:disable
+    restart: unless-stopped
+
+volumes:
+  openqa-data:

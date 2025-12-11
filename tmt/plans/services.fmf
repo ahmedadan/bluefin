@@ -1,0 +1,17 @@
+summary: Services and apps validation for Bluefin
+description: |
+    Validates key services (podman, systemd units) and
+    applications (terminal, flatpak) work correctly.
+
+provision:
+    how: bootc
+    container-image: ghcr.io/ublue-os/bluefin:stable
+    disk: 40
+    memory: 4096
+
+discover:
+    how: fmf
+    filter: "tag:apps | tag:services"
+
+execute:
+    how: tmt

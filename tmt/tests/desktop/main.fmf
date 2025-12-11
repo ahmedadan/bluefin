@@ -1,0 +1,7 @@
+summary: Verify GNOME desktop components
+tag: desktop
+test: ./test.sh
+duration: 5m
+require:
+    - gnome-shell
+    - dbus
