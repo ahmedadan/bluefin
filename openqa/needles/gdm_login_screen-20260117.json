@@ -11,8 +11,8 @@
   ],
   "properties": [],
   "tags": [
+    "gdm_login_screen",
     "gdm_bluefin_branded",
-    "gdm_login",
-    "bluefin_branding"
+    "login_screen"
   ]
 }

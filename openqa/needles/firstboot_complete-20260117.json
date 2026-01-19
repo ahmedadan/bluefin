@@ -11,9 +11,8 @@
   ],
   "properties": [],
   "tags": [
-    "welcome_dialog",
-    "gnome_desktop",
-    "bluefin_welcome",
-    "tour_dialog"
+    "firstboot_done",
+    "setup_complete",
+    "all_done"
   ]
 }
