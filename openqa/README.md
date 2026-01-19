@@ -10,21 +10,39 @@ This directory contains openQA tests that validate Bluefin boots correctly and t
 
 ```
 openqa/
-├── README.md           # This file
-├── docker-compose.yml  # Container deployment
-├── main.pm             # Test distribution entry point
-├── templates.fif.json  # Job templates, machines, products
-├── lib/
-│   ├── bluefinbase.pm  # Base test class
-│   └── bluefinutils.pm # Utility functions
-├── tests/
-│   └── boot/
-│       ├── boot_to_gdm.pm    # Boot to GDM login
-│       ├── gdm_login.pm      # Log in via GDM
-│       └── check_desktop.pm  # Verify desktop
-├── needles/
-│   └── boot/           # Reference screenshots (JSON + PNG)
-└── assets/             # ISOs go here
+├── README.md              # This file
+├── docker-compose.yml     # Container deployment
+├── main.pm                # Test distribution entry point
+├── templates.fif.json     # Job templates, machines, products
+├── run-local.sh           # Local run script
+│
+├── lib/                   # Perl libraries
+│   ├── bluefinbase.pm     # Base test class
+│   └── bluefinutils.pm    # Utility functions
+│
+├── tests/                 # Test modules
+│   ├── boot/              # Boot sequence tests
+│   │   ├── boot_live_desktop.pm  # Boot live CD to desktop
+│   │   ├── boot_to_gdm.pm        # Boot installed system to GDM
+│   │   ├── gdm_login.pm          # GDM login process
+│   │   └── check_desktop.pm      # Desktop verification
+│   ├── installation/      # Anaconda installer tests
+│   │   ├── start_install.pm      # Launch installer from live
+│   │   ├── anaconda_install.pm   # Anaconda flow
+│   │   ├── install_bluefin.pm    # Complete installation
+│   │   └── reboot_installed.pm   # Reboot after install
+│   └── firstboot/         # GNOME Initial Setup tests
+│       └── gnome_initial_setup.pm  # First boot wizard
+│
+├── needles/               # Flat structure, prefix-organized
+│   ├── boot_*.json/png        # Boot sequence (GRUB, MOK)
+│   ├── live_*.json/png        # Live CD desktop
+│   ├── install_*.json/png     # Anaconda installer
+│   ├── firstboot_*.json/png   # GNOME Initial Setup
+│   ├── gdm_*.json/png         # GDM login manager
+│   └── desktop_*.json/png     # GNOME desktop
+│
+└── assets/                # Test assets (ISOs)
 ```
 
 ## Prerequisites
@@ -86,9 +104,44 @@ Via Web UI: Operator Menu → Create Job
 
 | Suite | Description |
 |-------|-------------|
-| `boot_to_gdm` | Boot to GDM login screen (quick smoke test) |
-| `boot_to_desktop` | Boot and log in to GNOME desktop |
-| `boot_full` | Full boot test with desktop verification |
+| `boot_live` | Boot Live CD to desktop (quick smoke test) |
+| `boot_to_gdm` | Boot installed system to GDM login screen |
+| `install_bluefin` | Full installation flow (consolidated) |
+| `install_step_by_step` | Modular installation (for debugging) |
+| `verify_desktop` | Boot, login, and verify desktop |
+| `start_install` | Start installation from Live desktop |
+
+## Needle Naming Convention
+
+Needles follow GNOME OS openqa-needles conventions:
+
+```
+<category>_<element>-<YYYYMMDD>.json
+<category>_<element>-<YYYYMMDD>.png
+```
+
+- Underscores (`_`) separate all name components
+- Hyphen (`-`) reserved only for the date suffix
+- This makes parsing easy: `filename.rsplit('-', 1)` gives `[name, date]`
+
+### Needle Categories
+
+| Prefix | Description | Used in Tests |
+|--------|-------------|---------------|
+| `boot_` | GRUB, MOK, boot sequence | boot_to_gdm.pm, boot_live_desktop.pm |
+| `live_` | Live CD desktop, welcome dialog | boot_live_desktop.pm, start_install.pm |
+| `install_` | Anaconda installer screens | anaconda_install.pm, install_bluefin.pm |
+| `firstboot_` | GNOME Initial Setup wizard | gnome_initial_setup.pm |
+| `gdm_` | GDM login manager | gdm_login.pm, boot_to_gdm.pm |
+| `desktop_` | GNOME desktop elements | check_desktop.pm |
+
+### Examples
+
+```
+gdm_login_screen-20260117.json
+install_welcome-20260117.json
+firstboot_complete-20260117.json
+```
 
 ## Creating Needles
 
