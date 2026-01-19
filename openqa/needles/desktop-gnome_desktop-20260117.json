@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "xpos": 307,
+      "ypos": 230,
+      "width": 409,
+      "height": 307,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gnome_desktop",
+    "desktop_ready",
+    "bluefin_desktop"
+  ]
+}

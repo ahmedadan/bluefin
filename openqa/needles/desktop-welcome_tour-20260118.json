@@ -1,0 +1,24 @@
+{
+  "area": [
+    {
+      "xpos": 380,
+      "ypos": 140,
+      "width": 520,
+      "height": 320,
+      "type": "match",
+      "match": 60,
+      "click_point": {
+        "xpos": 120,
+        "ypos": 280
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "welcome_tour",
+    "bluefin_welcome",
+    "gnome_tour",
+    "gnome_desktop",
+    "bluefin_desktop"
+  ]
+}

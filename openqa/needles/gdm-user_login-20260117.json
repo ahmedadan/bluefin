@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "xpos": 540,
+      "ypos": 180,
+      "width": 200,
+      "height": 120,
+      "type": "match",
+      "match": 90
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "user_login",
+    "gdm_login",
+    "lock_screen",
+    "password_prompt"
+  ]
+}

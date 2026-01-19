@@ -1,0 +1,18 @@
+{
+  "area": [
+    {
+      "xpos": 560,
+      "ypos": 700,
+      "width": 160,
+      "height": 60,
+      "type": "match",
+      "match": 85
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gdm_bluefin_branded",
+    "gdm_login",
+    "bluefin_branding"
+  ]
+}

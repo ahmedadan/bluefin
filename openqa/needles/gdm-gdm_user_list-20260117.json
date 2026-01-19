@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "xpos": 450,
+      "ypos": 305,
+      "width": 380,
+      "height": 80,
+      "type": "match",
+      "match": 90
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gdm_user_list",
+    "gdm_login",
+    "user_selection",
+    "login_screen"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "xpos": 256,
+      "ypos": 192,
+      "width": 512,
+      "height": 384,
+      "type": "match"
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "lock_screen",
+    "gnome_lock",
+    "screen_locked"
+  ]
+}
