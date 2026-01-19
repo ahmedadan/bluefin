@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "xpos": 385,
+      "ypos": 95,
+      "width": 180,
+      "height": 35,
+      "type": "match",
+      "match": 90
+    },
+    {
+      "xpos": 380,
+      "ypos": 135,
+      "width": 500,
+      "height": 30,
+      "type": "match",
+      "match": 85
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "installation_failed",
+    "anaconda_error",
+    "install_error"
+  ]
+}

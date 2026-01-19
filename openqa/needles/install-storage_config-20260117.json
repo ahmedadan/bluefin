@@ -1,0 +1,28 @@
+{
+  "area": [
+    {
+      "xpos": 383,
+      "ypos": 757,
+      "width": 70,
+      "height": 38,
+      "type": "match",
+      "click_point": {
+        "xpos": 35,
+        "ypos": 19
+      }
+    },
+    {
+      "xpos": 273,
+      "ypos": 130,
+      "width": 220,
+      "height": 40,
+      "type": "match",
+      "match": 90
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_storage_config",
+    "encryption_option"
+  ]
+}

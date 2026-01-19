@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "xpos": 550,
+      "ypos": 220,
+      "width": 150,
+      "height": 40,
+      "type": "match",
+      "match": 90
+    },
+    {
+      "xpos": 150,
+      "ypos": 370,
+      "width": 980,
+      "height": 80,
+      "type": "match",
+      "match": 75
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_installing",
+    "installation_progress",
+    "software_installation"
+  ]
+}

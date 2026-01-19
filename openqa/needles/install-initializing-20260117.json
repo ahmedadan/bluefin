@@ -1,0 +1,17 @@
+{
+  "area": [
+    {
+      "xpos": 540,
+      "ypos": 400,
+      "width": 200,
+      "height": 100,
+      "type": "match",
+      "match": 85
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "anaconda_initializing",
+    "installer_loading"
+  ]
+}
