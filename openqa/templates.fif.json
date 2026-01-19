@@ -17,17 +17,14 @@
       "backend": "qemu",
       "settings": [
         { "key": "HDDSIZEGB", "value": "40" },
-        { "key": "QEMUCPUS", "value": "4" },
-        { "key": "QEMURAM", "value": "8192" },
+        { "key": "QEMUCPUS", "value": "8" },
+        { "key": "QEMURAM", "value": "16384" },
         { "key": "QEMU_VIRTIO_RNG", "value": "1" },
         { "key": "WORKER_CLASS", "value": "qemu_x86_64" },
-        { "key": "QEMU_VIDEO_DEVICE", "value": "virtio-vga" },
-        { "key": "QEMU_HOST_CPU", "value": "1" },
-        { "key": "UEFI", "value": "1" },
-        { "key": "UEFI_PFLASH_VARS", "value": "/usr/share/edk2/ovmf/OVMF_VARS.fd" },
-        { "key": "HDDMODEL", "value": "virtio-blk" },
+        { "key": "XRES", "value": "1280" },
+        { "key": "YRES", "value": "800" },
+        { "key": "CDMODEL", "value": "scsi-cd" },
         { "key": "NICMODEL", "value": "virtio-net-pci" },
-        { "key": "QEMU_AUDIO_DRV", "value": "none" },
         { "key": "TIMEOUT_SCALE", "value": "1.5" }
       ]
     }
@@ -38,6 +35,7 @@
       "distri": "bluefin",
       "flavor": "default",
       "version": "*",
+      "arch": "x86_64",
       "settings": [
         { "key": "DESKTOP", "value": "gnome" },
         { "key": "BLUEFIN_VARIANT", "value": "bluefin" },
@@ -50,6 +48,7 @@
       "distri": "bluefin",
       "flavor": "dx",
       "version": "*",
+      "arch": "x86_64",
       "settings": [
         { "key": "DESKTOP", "value": "gnome" },
         { "key": "BLUEFIN_VARIANT", "value": "bluefin-dx" },
@@ -90,25 +89,25 @@
     {
       "machine": { "name": "uefi" },
       "prio": 50,
-      "product": { "name": "bluefin" },
+      "product": { "arch": "x86_64", "distri": "bluefin", "flavor": "default", "version": "*" },
       "test_suite": { "name": "boot_to_gdm" }
     },
     {
       "machine": { "name": "uefi" },
       "prio": 50,
-      "product": { "name": "bluefin" },
+      "product": { "arch": "x86_64", "distri": "bluefin", "flavor": "default", "version": "*" },
       "test_suite": { "name": "boot_to_desktop" }
     },
     {
       "machine": { "name": "uefi" },
       "prio": 40,
-      "product": { "name": "bluefin-dx" },
+      "product": { "arch": "x86_64", "distri": "bluefin", "flavor": "dx", "version": "*" },
       "test_suite": { "name": "boot_to_gdm" }
     },
     {
       "machine": { "name": "uefi" },
       "prio": 40,
-      "product": { "name": "bluefin-dx" },
+      "product": { "arch": "x86_64", "distri": "bluefin", "flavor": "dx", "version": "*" },
       "test_suite": { "name": "boot_to_desktop" }
     }
   ]

@@ -23,6 +23,11 @@ services:
       - /dev/kvm:/dev/kvm
     security_opt:
       - label:disable
+      - seccomp:unconfined
+    cap_add:
+      - SYS_ADMIN
+      - NET_ADMIN
+      - SYS_PTRACE
     restart: unless-stopped
 
 volumes:
