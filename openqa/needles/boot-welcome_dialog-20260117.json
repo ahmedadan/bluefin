@@ -1,0 +1,22 @@
+{
+  "area": [
+    {
+      "xpos": 365,
+      "ypos": 145,
+      "width": 550,
+      "height": 175,
+      "type": "match",
+      "match": 85,
+      "click_point": {
+        "xpos": 105,
+        "ypos": 245
+      }
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "welcome_dialog",
+    "live_desktop_ready",
+    "install_icon"
+  ]
+}

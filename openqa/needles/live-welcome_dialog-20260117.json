@@ -1,0 +1,19 @@
+{
+  "area": [
+    {
+      "xpos": 130,
+      "ypos": 120,
+      "width": 260,
+      "height": 180,
+      "type": "match",
+      "match": 85
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "live_desktop",
+    "live_desktop_ready",
+    "welcome_dialog",
+    "live_welcome"
+  ]
+}

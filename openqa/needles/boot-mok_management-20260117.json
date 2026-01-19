@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "xpos": 530,
+      "ypos": 340,
+      "width": 200,
+      "height": 30,
+      "type": "match",
+      "match": 90
+    },
+    {
+      "xpos": 540,
+      "ypos": 17,
+      "width": 200,
+      "height": 25,
+      "type": "match",
+      "match": 85
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "mok_management",
+    "continue_boot",
+    "secure_boot"
+  ]
+}
