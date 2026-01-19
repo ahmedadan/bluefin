@@ -1,0 +1,26 @@
+{
+  "area": [
+    {
+      "xpos": 595,
+      "ypos": 45,
+      "width": 90,
+      "height": 30,
+      "type": "match",
+      "match": 95
+    },
+    {
+      "xpos": 600,
+      "ypos": 130,
+      "width": 90,
+      "height": 100,
+      "type": "match",
+      "match": 85
+    }
+  ],
+  "properties": [],
+  "tags": [
+    "gnome_initial_setup",
+    "firstboot_welcome",
+    "language_selection"
+  ]
+}
