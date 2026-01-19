@@ -19,19 +19,35 @@ my $test_suite = get_var('TEST_SUITE', 'install_bluefin');
 
 # Define test suites
 my %test_suites = (
-    # Boot Live CD to desktop only (quick smoke test)
+    # Quick smoke tests
     'boot_live' => [
         'boot/boot_live_desktop',
     ],
+    'boot_to_gdm' => [
+        'boot/boot_to_gdm',
+    ],
 
-    # Full installation - single consolidated test
+    # Full installation flow
     'install_bluefin' => [
         'installation/install_bluefin',
     ],
 
-    # Boot already-installed system to GDM
-    'boot_to_gdm' => [
+    # Modular installation (for debugging/development)
+    'install_step_by_step' => [
+        'boot/boot_live_desktop',
+        'installation/start_install',
+        'installation/anaconda_install',
+        'installation/reboot_installed',
+        'firstboot/gnome_initial_setup',
         'boot/boot_to_gdm',
+        'boot/gdm_login',
+    ],
+
+    # Desktop verification
+    'verify_desktop' => [
+        'boot/boot_to_gdm',
+        'boot/gdm_login',
+        'boot/check_desktop',
     ],
 
     # Start installation from Live desktop
